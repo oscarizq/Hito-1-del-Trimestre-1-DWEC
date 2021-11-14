@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Var y Let -->
+    <button onclick="comprobar()">Comprobar ciudad</button>
+
+    <script>
+        function comprobar() {
+
+            let ciudad = "sevilla";
+            if (ciudad == "sevilla") {
+                let ciudad = "toledo";
+                console.log("la ciudad es madrid");//toledo let //toledo var
+            }
+            console.log("la ciudad es " + ciudad);//sevilla let //toledo var
+        }
+
+    </script>
+    <br>
+    <br>
+    <hr>
+    
+    <!-- Constante -->
+    <!-- Primer Ejemplo -->
+
+    <script>
+        const pi = 3.1416;
+        var r = 2;
+
+        document.write("Resultado " + pi * r * r);
+
+        pi = 23;
+        document.write("Resultado " + pi * r * r);
+
+    </script>
+    <!-- Segundo Ejemplo -->
+    <button onclick="numerica()">Comprobar Numeros Constante</button>
+
+    <script>
+        const a = 12; //variable global
+
+        function numerica(){
+            console.log(a); //12
+
+            const b = 14; //bloque
+
+            if(true) {
+                console.log(b);//14
+                const c = 16;
+            }
+            console.log(c); // Da error
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

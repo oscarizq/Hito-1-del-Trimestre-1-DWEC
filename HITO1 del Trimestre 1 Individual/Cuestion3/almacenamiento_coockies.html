@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cookies</h2>
+            <!-- Primer Ejemplo -->
+       <script>
+           //Crear una cookie: nombre; fecha de expiracion-UTC-;edad maxima en segundos; ruta; dominio
+           document.cookie = "usuario = Javi Ramirez; expires=Mon, 16 Dic 2021 12:00:00 UTC; path=/;";
+          document.cookie = "usuario = Pepe Gomez;";
+
+           document.cookie = "sexo = mujer";
+           //Si ponemos el mismo usuario para cambiar la cookie tendremos que poner el la 
+           //nueva cookie toda informacion de la otra cookie
+
+           //Leer una cookie
+           var miCookie = document.cookie;
+           console.log(miCookie);
+
+            //Modificar una cookie
+            document.cookie = "sexo = hombre";//La variable sexo para a ser hombre
+            console.log(document.cookie);
+
+            //Borrar una cookie
+            //document.cookie = "usuario=; expieres=Tru, 16 Jan 1999 00:00:01 GMT";
+            //document.cookie = "sexo=; expieres=Tru, 16 Jan 1999 00:00:01 GMT";
+            console.log(document.cookie);
+       </script> 
+
+
+
+
+    
+</body>
+</html>

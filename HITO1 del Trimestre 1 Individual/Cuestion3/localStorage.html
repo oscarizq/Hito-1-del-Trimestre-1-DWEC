@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>localStorage</h2>
+    <!-- Primer ejemplo -->
+    <button id="crear">Crear</button>
+    <button id="mostrar">Mostrar</button>
+    <button id="modificar">Modificar</button>
+    <button id="eliminar">Eliminar</button>
+
+    <script>
+        document.getElementById("crear").addEventListener("click", crear);
+        document.getElementById("mostrar").addEventListener("click", mostrar);
+        document.getElementById("modificar").addEventListener("click", modificar);
+        document.getElementById("eliminar").addEventListener("click", eliminar);
+
+        function crear(){
+            localStorage.setItem("usuario", "Oscar");
+            localStorage.setItem("email", "oscar@gmail.com");
+
+        }
+        function mostrar(){
+            alert("Usuario: " + localStorage.getItem("usuario") + "Correo: " + localStorage.getItem("email"));
+        }
+
+        function modificar(){
+            localStorage.setItem("usuario","Oscar12345")
+            localStorage.setItem("email","oscar12345@gmail.com")
+
+
+        }
+        function eliminar(){
+            localStorage.removeItem("usuario");
+            localStorage.removeItem("email");
+
+
+        }
+
+    </script>
+    <hr>
+
+    <!-- Segundo ejemplo -->
+
+        <button onclick="preguntar()">preguntar</button>
+
+    <script>
+        function preguntar(){
+        var respuesta=window.prompt("Dime la capital de España");
+        var almacen = window.localStorage;//se guarda aunque cierras el navegador
+        almacen.setItem("capital",respuesta);
+        var almacenprovisional=window.sessionStorage;// se borra al cerrar el navegador
+        almacenprovisional.setItem("capitalprovisional",respuesta);
+        }
+    </script>
+    
+    
+</body>
+</html>

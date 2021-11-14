@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Ejemplo 4 </h3>
+
+    <div id="mensaje">
+
+    </div>
+
+    <div>
+        <label for="clave">Clave</label>
+        <input type="text" name="clave" id="clave">
+    </div>
+
+    <div>
+        <label for="valor">Valor</label>
+        <input type="text" name="valor" id="valor">
+    </div>
+
+    <div>
+        <button id="añadir2">Añadir</button>
+        <button id="eliminar2">Eliminar</button>
+        <button id="mostrar2">Mostrar</button>
+        <button id="limpiar2">Limpiar</button>
+    </div>
+
+    <div id="datos">
+
+    </div>
+
+    <script>
+        function init() {
+            document.getElementById("añadir2").addEventListener("click", function () {
+                añadir2();
+            })
+            document.getElementById("eliminar2").addEventListener("click", function () {
+                eliminar2();
+            })
+            document.getElementById("mostrar2").addEventListener("click", function () {
+                mostrar2();
+            })
+            document.getElementById("limpiar2").addEventListener("click", function () {
+                limpiar2();
+            })
+
+        }
+
+        function añadir2() {
+            const clave = document.getElementById("clave").value;
+            const valor = document.getElementById("valor").value;
+
+            if (clave != "") {
+                if (localStorage.getItem(clave)) {
+                    document.getElementById("mensaje").innerHTML = "<p>Se edito el registro</p>"
+                } else {
+                    document.getElementById("mensaje").innerHTML = "<p>Se añade el registro</p>"
+
+                }
+                localStorage.setItem(clave, valor);
+            } else {
+                document.getElementById("mensaje").innerHTML = "<p>Clave debe tener un valor</p>"
+
+            }
+
+        }
+        function eliminar2() {
+            const clave = document.getElementById("clave").value;
+
+            if (localStorage.getItem(clave)) {
+                document.getElementById("mensaje").innerHTML = "<p>Se elimino el registro</p>"
+                localStorage.removeItem(clave);
+            } else {
+                document.getElementById("mensaje").innerHTML = "<p>No existe la clave</p>"
+
+            }
+        }
+
+        function mostrar2() {
+
+            const divDatos = document.getElementById("datos");
+            divDatos.innerHTML = "";
+
+            if (localStorage.length === 0) {
+                document.getElementById("mensaje").innerHTML = "<p>No hay datos</p>"
+
+
+            } else {
+
+                let tabla = document.createElement("table");
+                tabla.setAttribute("border", "1");
+
+                let tr = document.createElement("tr");
+
+                let th = document.createElement("th");
+                let thTexto = document.createTextNode("clave");
+
+                th.appendChild(thTexto);
+                tr.appendChild(th);
+
+                th = document.createElement("th");
+                thTexto = document.createTextNode("valor");
+
+                th.appendChild(thTexto);
+                tr.appendChild(th);
+
+                tabla.appendChild(tr);
+
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+
+                    let tr = document.createElement("tr");
+                    let td = document.createElement("td");
+                    let tdText = document.createTextNode(key);
+
+                    td.appendChild(tdText);
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    tdText = document.createTextNode(localStorage.getItem(key));
+
+                    td.appendChild(tdText);
+                    tr.appendChild(td);
+
+                    tabla.appendChild(tr);
+
+                }
+                divDatos.appendChild(tabla);
+            }
+
+        }
+
+        function limpiar2() {
+            document.getElementById("mensaje").innerHTML = "<p>Se borran todos los elementos</p>";
+            document.getElementById("datos").innerHTML = "";
+            localStorage.clear();
+        }
+
+        window.onload = init();
+    </script>
+
+    <hr>
+    <h3>Ejemplo 5</h3>
+    <button type="button" id="logout">Cerrar Sesion</button>
+    <p id="saludo"></p>
+
+    <script>
+        // NO FUNCIONA (DEVERIA DE FUNCIONAR)
+        if (typeof (Storage) !== "undefined") {
+            alert("El navegador soporta WebStorage");
+            saludar();
+            //Botones 
+            document.getElementById("logout").addEventListener("click", logout);
+
+        } else {
+            alert("El navegador no soporta WedStorage");
+        }
+
+        function saludar() {
+            if (localStorage.getItem("usuario")!=null) {
+                document.getElementById("saludo").innerHTML = "Bienvenido/a de nuevo," + localStorage.getItem("usuario") + "!";
+
+            } else {
+                var nombre = prompt("¿Como te llamas?");
+                localStorage.setItem("usuario",nombre);
+                document.getElementById("saludo").innerHTML = "Tu primera visita," + localStorage.getItem("usuario");
+            }
+        }
+    </script>
+
+
+    
+</body>
+</html>

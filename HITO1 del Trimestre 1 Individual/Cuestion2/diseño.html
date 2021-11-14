@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <!-- Primer ejemplo del DOM -->
+
+    <form action="formulario" id="formulario">
+        <p>Nombre: </p>
+        <input type="String" name="name" id="nombre" idsize="40">
+        <br>
+        <br>
+        <p>Correo electronico:</p>
+        <input type="email" name="email" id="email" size="40">
+        <br>
+        <br>
+
+        <p>Numero de telefono:</p>
+        <input type="number" name="number" id="telefono" size="40">
+        <br>
+        <br>
+
+
+        <button id="" onclick="eviar()">Enviar</button>
+    </form>
+
+    <script>
+        function eviar() {
+            const nom = document.getElementById("nombre").value;
+            const telefo = document.getElementById("telefono").value;
+
+            const ema = document.getElementById("email").value;
+
+            let email = false;
+            for (let i = 0; i < ema.length; i++) {
+                if (ema[i] == "@") {
+                    email = true;
+                }
+            }//termina de analizar la frase
+
+            if (email == false) {
+                alert("Email No Valido: " + ema);
+            } else {
+                document.write("Nombre: " + nom + "<br>");
+                document.write("Correo: " + ema + "<br>");
+                document.write("Telefono: " + telefo);
+
+            }
+
+        }
+
+        const form = document.getElementById("formulario");
+
+
+        
+    </script>
+    <!-- Segundo ejemplo del DOM -->
+    <hr>
+
+    <button id="img" onclick="mostrarimg()">Mostrar imagen</button>
+    <button id="eliminar" onclick="eliminar()">Eliminar imagen</button>
+
+    <div id="galeria">
+
+
+        <script>
+            function mostrarimg() {
+                var img = document.createElement("img");
+                img.setAttribute("src", "../foto1.png");
+                img.setAttribute("width", "100");
+                galeria.appendChild(img);//Lo mete en galeria 
+
+            }
+
+            function eliminar() {
+                galeria.removeChild(galeria.childNodes[0]);
+
+            }
+        </script>
+
+        <!-- BOM -->
+        <script>
+            function getNavegador() {
+                //Saber las medidas del navegador 
+                console.log("Medidas del navegador");
+                console.log("");
+                console.log("Medidas de Ancho : " + window.innerWidth);
+                console.log("Medidas de Alto : " + window.innerHeight);
+
+            }
+            function getPantalla() {
+                //Saber las medidas de la pantalla
+                console.log("Medidas del pantalla");
+                console.log("");
+                console.log("Medidas de Ancho : " + screen.width);
+                console.log("Medidas de Alto : " + screen.height);
+            }
+
+            function windowsOpen(url) {
+                window.open(url, "https://www.google.cl/", "width=500, height=500"); //Deveria de funcionar
+            }
+
+            function obtenerUrl() {
+                console.log(window.location.href);
+                //console.log(window.location);
+
+            }
+
+            getNavegador();
+            getPantalla();
+            windowsOpen();
+            obtenerUrl();
+
+        </script>
+
+
+
+
+
+</body>
+
+</html>

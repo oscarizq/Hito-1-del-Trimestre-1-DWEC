@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>sessionStorage</h2>
+    <!-- Primer ejemplo -->
+    <button id="crear">Crear</button>
+    <button id="mostrar">Mostrar</button>
+    <button id="modificar">Modificar</button>
+    <button id="eliminar">Eliminar</button>
+
+    <script>
+        document.getElementById("crear").addEventListener("click", crear);
+        document.getElementById("mostrar").addEventListener("click", mostrar);
+        document.getElementById("modificar").addEventListener("click", modificar);
+        document.getElementById("eliminar").addEventListener("click", eliminar);
+
+        function crear(){
+            sessionStorage.setItem("usuario", "Oscar");
+            sessionStorage.setItem("email", "oscar@gmail.com");
+
+        }
+        function mostrar(){
+            alert("Usuario: " + sessionStorage.getItem("usuario") + "Correo: " + sessionStorage.getItem("email"));
+        }
+
+        function modificar(){
+            sessionStorage.setItem("usuario","Oscar12345")
+            sessionStorage.setItem("email","oscar12345@gmail.com")
+
+
+        }
+        function eliminar(){
+            sessionStorage.removeItem("usuario");
+            sessionStorage.removeItem("email");
+
+
+        }
+    </script>
+    
+    <br>
+    <hr>
+
+
+
+    
+    
+</body>
+</html>

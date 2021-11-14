@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- TEXTO -->
+    <h2 onclick="saludar('Oscar')">Saludar</h2>
+    <script>
+        function saludar(nombre) {
+            console.log("Bienvenido " + nombre);
+            document.write("Tu nombre es " + nombre);
+        }
+
+        var leer = "Estoy leyendo un libro rojo";
+        document.write(leer);
+    </script>
+    <hr>
+
+
+
+
+    <!-- NUMERICOS -->
+
+    <p>Primer numero</p>
+    <p><input type="number" id="n1" placeholder="Primer numero"></p>
+
+    <p>Segundo numero</p>
+    <p><input type="number" id="n2" placeholder="Segundo numero"></p>
+
+    <button onclick="sumar()">Sumar</button>
+    <button onclick="restar()">Resta</button>
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <hr>
+
+    <script>
+        //Sumar
+        function sumar() {
+
+            num = document.getElementById("n1").value;
+            num2 = document.getElementById("n2").value;
+
+            var suma = parseInt(num) + parseInt(num2);//Hay que parsearlos a Int
+            alert("La suma es: " + suma);
+
+
+        }
+        //Restar
+        function restar() {
+
+            num = document.getElementById("n1").value;
+            num2 = document.getElementById("n2").value;
+
+            var resta = num - num2;//conversion explicita
+
+            alert("La suma es: " + resta);
+
+
+        }
+        //Multiplicar
+        function multiplicar() {
+
+            num = document.getElementById("n1").value;
+            num2 = document.getElementById("n2").value;
+
+            var multi = num * num2;//conversion explicita
+
+            alert("La suma es: " + multi);
+
+
+        }
+        //Dividir
+        function dividir() {
+
+            num = document.getElementById("n1").value;
+            num2 = document.getElementById("n2").value;
+
+            var divi = num / num2;//conversion explicita
+
+            alert("La suma es: " + divi);
+
+
+        }
+    </script>
+
+
+    <!-- BOLEANOS -->
+
+    <!-- Primer Ejemplo -->
+    <script>
+        var num1 = 10;
+        var num2 = 9;
+        var comparador = (num1 == num2);
+        //true=1 False=0
+
+        document.write(comparador);
+    </script>
+
+    <!-- Segundo Ejemplo -->
+    <p><input type="email" id="mail" placeholder="Dime tu email"></p>
+    <button onclick="email()">Enviar mail</button>
+
+    <script>
+        function email() {
+            const ema = document.getElementById("mail").value;
+            let email = false;
+            for (let i = 0; i < ema.length; i++) {
+                if (ema[i] == "@") {
+                    email = true;
+                }
+            }
+
+            if (email == false) {
+                console.log("Email No Valido " + ema);
+            } else {
+                console.log("Email Válido " + ema);
+            }
+
+        }
+    </script>
+    <hr>
+    <!-- LISTAS -->
+    <!-- Primer Ejemplo -->
+
+    <script>
+        var mes1 = "Enero";
+        var mes2 = "Febrero"; //Esta forma la menos reconmendable 
+        var mes3 = "Marzo";
+        var mes4 = "Abril";
+        document.write(mes2);
+
+
+        var meses = ["Enero", "Febrero", "Marzo", "Abril"];
+
+        meses[4] = "Mayo";  //Agregar mas elementos
+        meses[5] = "Junio";
+
+        document.write(meses[1]);
+        document.write(meses[5]);
+
+        //Recorreor una lista (Arrays)
+        for (let i = 0; i < 10; i++) {
+            console.log(meses[i]);
+        }
+
+        meses.forEach(element => {
+            console.log(meses);
+
+
+        });
+
+    </script>
+    <!-- Segundo Ejemplo -->
+
+    <p><input type="String" id="ciudad1" placeholder="ciudad1"></p>
+    <p><input type="String" id="ciudad2" placeholder="ciudad2"></p>
+    <p><input type="String" id="ciudad3" placeholder="ciudad3"></p>
+    <p><input type="String" id="ciudad4" placeholder="ciudad4"></p>
+
+    <button onclick="asig()">Asignatura</button>
+
+
+    <script>
+        var arr = [];
+        function asig() {
+
+            let ciudad = document.getElementById("ciudad1").value;
+            arr.push(ciudad);
+
+            ciudad = document.getElementById("ciudad2").value;
+            arr.push(ciudad);
+
+            ciudad = document.getElementById("ciudad3").value;
+            arr.push(ciudad);
+
+            ciudad = document.getElementById("ciudad4").value;
+            arr.push(ciudad);
+
+            arr.sort()
+            alert(arr);
+
+        }
+       
+    </script>
+
+
+
+
+
+</body>
+
+</html>
